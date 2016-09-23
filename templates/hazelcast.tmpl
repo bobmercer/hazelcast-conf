@@ -21,8 +21,11 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-				{{range ls "/self/service/containers"}}{{ $containerName := getv (printf "/self/service/containers/%s" .)}}
- 				- {{getv (printf "/containers/%s/primary_ip" $containerName)}}{{end}}
+				{{with get "/self/service/name"}}{{if eq "hz-node" .Value}}
+					{{range ls "/self/service/containers"}}{{ $containerName := getv (printf "/self/service/containers/%s" .)}}
+ 						- {{getv (printf "/containers/%s/primary_ip" $containerName)}}
+ 					{{end}}
+ 				{{end}}
             </tcp-ip>
         </join>
         <interfaces enabled="true">
