@@ -1,0 +1,9 @@
+[template]
+src = "hazelcast.tmpl"
+dest = "/opt/hazelcast/hazelcast.yml"
+keys = [
+  "/self/service",
+  "/containers",
+]
+
+# reload_cmd = "/opt/hazelcast/stop.sh && /opt/hazelcast/start.sh"

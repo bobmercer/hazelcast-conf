@@ -5,7 +5,6 @@ RUN chmod +x /confd
 
 ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates
-ADD ./run.sh /run.sh
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 
 VOLUME /data/confd
