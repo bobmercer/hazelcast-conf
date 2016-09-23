@@ -21,15 +21,10 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-				{{with get "/self/service/name"}}{{if eq "hz-node" .Value}}
 					{{range ls "/self/service/containers"}}{{ $containerName := getv (printf "/self/service/containers/%s" .)}}
- 						- {{getv (printf "/containers/%s/primary_ip" $containerName)}}
+ 						<interface> {{getv (printf "/containers/%s/primary_ip" $containerName)}} </interface>
  					{{end}}
- 				{{end}}
             </tcp-ip>
         </join>
-        <interfaces enabled="true">
-            <interface>10.10.1.*</interface>
-        </interfaces>
     </network>
 </hazelcast>
