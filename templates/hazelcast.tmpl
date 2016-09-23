@@ -21,10 +21,9 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-            	{{getv (printf "/containers/%s/primary_ip" $containerName)}}
-                <interface>127.0.0.1</interface>
+				{{range ls "/self/service/containers"}}{{ $containerName := getv (printf "/self/service/containers/%s" .)}}                <interface>127.0.0.1</interface>
                 <member-list>
-                    <member>127.0.0.1</member>
+                    <member>{{getv (printf "/containers/%s/primary_ip" $containerName)}}</member>
                 </member-list>
             </tcp-ip>
         </join>
