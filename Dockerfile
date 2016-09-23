@@ -7,6 +7,8 @@ ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 
+RUN chmod +x /docker-entrypoint.sh
+
 VOLUME /data/confd
 VOLUME /opt/rancher/bin
 VOLUME /usr/share/elasticsearch/config
