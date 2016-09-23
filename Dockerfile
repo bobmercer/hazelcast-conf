@@ -11,7 +11,7 @@ RUN chmod +x /docker-entrypoint.sh
 
 VOLUME /data/confd
 VOLUME /opt/rancher/bin
-VOLUME /usr/share/elasticsearch/config
+VOLUME /opt/hazelcast
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["--backend", "rancher", "--prefix", "/2015-07-25"]
