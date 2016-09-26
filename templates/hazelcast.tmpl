@@ -21,9 +21,12 @@
                 <multicast-port>54327</multicast-port>
             </multicast>
             <tcp-ip enabled="true">
-					{{range ls "/self/service/containers"}}{{ $containerName := getv (printf "/self/service/containers/%s/service_name" {{.Value}})}}
- 						<interface> {{getv (printf "/containers/%s/primary_ip" $containerName)}} </interface>
- 					{{end}}
+				{{with get "/self/service/name"}}{{if eq "hazelcast-datanodes" .Value}}
+					{{range ls "/self/service/containers"}}
+					- {{getv (printf "/self/service/containers/%s/primary_ip" .Value)}}{{end}}
+				{{else}}
+					- localhost
+				{{end}}{{end}}
             </tcp-ip>
         </join>
     </network>
