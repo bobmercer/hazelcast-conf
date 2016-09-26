@@ -9,10 +9,10 @@ node{
     		checkout scm
 		}
 		stage('Build Docker'){
-    	    sh "docker build -t devserver2.corp.skysoft-atm.com:5000/skysoft/hazelcast-conf:latest --rm --pull=true ."
+    	    sh "docker build -t devserver2.corp.skysoft-atm.com:5000/skysoft/hazelcast-conf:1.0.0 --rm --pull=true ."
     	}
     	stage('Push Docker'){
-    		sh "docker push devserver2.corp.skysoft-atm.com:5000/skysoft/hazelcast-conf:latest"
+    		sh "docker push devserver2.corp.skysoft-atm.com:5000/skysoft/hazelcast-conf:1.0.0"
     	}
 	}
 	catch(err) {
