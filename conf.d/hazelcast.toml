@@ -1,6 +1,6 @@
 [template]
 src = "hazelcast.tmpl"
-dest = "/opt/hazelcast/hazelcast.yml"
+dest = "/opt/hazelcast/hazelcast.xml"
 keys = [
   "/self/service",
   "/containers",
