@@ -9,9 +9,11 @@ RUN chmod +x /confd
 
 ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates
-ADD ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./bin /etc/confd/bin
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh && \
+	chmod +x /etc/confd/bin/*.sh
 
 VOLUME /data/confd
 VOLUME /opt/rancher/bin

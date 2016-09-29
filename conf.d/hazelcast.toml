@@ -6,5 +6,5 @@ keys = [
   "/containers",
   "/services",
 ]
-
+check_cmd = "/etc/confd/bin/check.sh {{ .src }}"
 # reload_cmd = "/opt/hazelcast/stop.sh && /opt/hazelcast/start.sh"
