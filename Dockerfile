@@ -20,4 +20,4 @@ VOLUME /opt/rancher/bin
 VOLUME /opt/hazelcast
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["--backend", "rancher", "--prefix", "/2015-07-25", "--interval 60"]
+CMD ["--backend", "rancher", "--prefix", "/2015-12-19", "--interval 30"]
