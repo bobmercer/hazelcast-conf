@@ -46,6 +46,9 @@ echo Index: $INDEX
 HAZELCAST_NODE_HOSTNAME="${STACK_NAME}_hazelcast-conf_hazelcast-node_${INDEX}"
 echo Hazelcast host : $HAZELCAST_NODE_HOSTNAME
 
+echo Check if hazelcast node is already started
+/bin/bash wait-for-it.sh $HAZELCAST_NODE_HOSTNAME:5601 -t 0 --strict -- echo "Hazelcast node is up" 
+
 echo Contacting Supervisord on ${HAZELCAST_NODE_HOSTNAME} via XML/RPC API to restart hazelcast process
 echo Stopping process hazelcast-server...
 RESP=$(echo '<?xml version="1.0"?><methodCall><methodName>supervisor.stopProcess</methodName><params><param><value><string>hazelcast-server</string></value></param><param><value><string>true</string></value></param></params></methodCall>' | curl -s --fail -d @- http://hazelcast_hazelcast-conf_hazelcast-node_1:9001/RPC2)
