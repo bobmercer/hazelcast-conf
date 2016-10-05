@@ -47,7 +47,7 @@ HAZELCAST_NODE_HOSTNAME="${STACK_NAME}_hazelcast-conf_hazelcast-node_${INDEX}"
 echo Hazelcast host : $HAZELCAST_NODE_HOSTNAME
 
 echo Check if hazelcast node is already started
-/bin/bash wait-for-it.sh $HAZELCAST_NODE_HOSTNAME:5601 -t 0 --strict -- echo "Hazelcast node is up" 
+/bin/bash wait-for-it.sh $HAZELCAST_NODE_HOSTNAME:5701 -t 0 --strict -- echo "Hazelcast node is up" 
 
 echo Contacting Supervisord on ${HAZELCAST_NODE_HOSTNAME} via XML/RPC API to restart hazelcast process
 echo Stopping process hazelcast-server...
