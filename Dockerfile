@@ -1,4 +1,3 @@
-#FROM busybox
 FROM debian:jessie
 
 # To be disable
