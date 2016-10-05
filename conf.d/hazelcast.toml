@@ -7,4 +7,4 @@ keys = [
   "/self/stack",
 ]
 check_cmd = "/etc/confd/bin/check.sh {{ .src }}"
-reload_cmd = "echo RELOAD !!"
+reload_cmd = "/etc/confd/bin/restart.sh"

@@ -2,7 +2,9 @@
 FROM debian:jessie
 
 # To be disable
-RUN apt-get update && apt-get -y install curl vim libxml2-utils
+RUN apt-get update && \
+	apt-get -y install curl vim libxml2-utils && \
+	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 /confd
 RUN chmod +x /confd
