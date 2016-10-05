@@ -4,7 +4,7 @@ dest = "/opt/hazelcast/hazelcast.xml"
 keys = [
   "/self/service",
   "/containers",
-  "/services",
+  "/self/stack",
 ]
 check_cmd = "/etc/confd/bin/check.sh {{ .src }}"
 reload_cmd = "echo RELOAD !!"
